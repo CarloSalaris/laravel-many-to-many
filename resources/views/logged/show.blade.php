@@ -14,6 +14,12 @@
                 <h5>
                     <b>Type: </b> {{ $project->type->name }}
                 </h5>
+                <h5>
+                    <b>Technologies: </b>
+                    @foreach ($project->technologies as $technology)
+                        {{ $technology->name }}
+                    @endforeach
+                </h5>
             </div>
 
             <div class="card-footer ">

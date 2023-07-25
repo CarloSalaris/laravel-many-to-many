@@ -27,12 +27,14 @@ return new class extends Migration
 
         });
 
-      /*   // OPTION TWO ("CONTRAINED")
-        Schema::table('types', function (Blueprint $table) {
+        Schema::table('project_technology', function (Blueprint $table) {
 
             $table->foreignId('project_id')->constrained();
+            $table->foreignId('technology_id')->constrained();
 
-        }); */
+        });
+
+
     }
 
     /**
@@ -45,12 +47,20 @@ return new class extends Migration
         Schema::table('projects', function (Blueprint $table) {
 
             $table->dropForeign('projects_user_id_foreign');
-
             $table->dropColumn('user_id');
 
             $table->dropForeign('projects_type_id_foreign');
-
             $table->dropColumn('type_id');
+
+        });
+
+        Schema::table('project_technology', function (Blueprint $table) {
+
+            $table->dropForeign('project_technology_project_id_foreign')->constrained();
+            $table->dropForeign('project_technology_technology_id_foreign')->constrained();
+
+            $table->dropColumn('project_id');
+            $table->dropColumn('technology_id');
 
         });
 

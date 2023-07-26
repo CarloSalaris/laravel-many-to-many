@@ -29,15 +29,15 @@
                         {{ $project->framework }}
                     </div>
                     <div class="col">
-                        <b>Created: </b>
-                        {{ $project->created_at }}
+                        <b>Created on: </b>
+                        {{ date('d-m-Y', strtotime($project->created_at)) }}
                     </div>
                 </div>
             </div>
 
         </div>
 
-        <a role="button" class="btn btn-primary my-3" href="{{ route('edit', $project->id) }}">
+        <a role="button" class="btn btn-primary my-3 px-5" href="{{ route('edit', $project->id) }}">
             Edit
         </a>
 

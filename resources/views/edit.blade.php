@@ -56,7 +56,7 @@
                             </div>
                         </div>
                         <div class=" my-3">
-                            <button type="submit" class="btn btn-primary">Update</button>
+                            <button type="submit" class="btn btn-primary px-5">Update</button>
                         </div>
                     </form>
                 </div>

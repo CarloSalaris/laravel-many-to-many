@@ -5,6 +5,10 @@
 
         <h1>Projects list</h1>
 
+        <a role="button" class="btn btn-primary my-3" href="{{ route('logged.create') }}">
+            New project
+        </a>
+
         <div class="row justify-content-center">
             <div class="col col-md-6 ">
                 <ul class="list-unstyled">

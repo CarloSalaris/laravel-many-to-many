@@ -39,6 +39,15 @@
                     <input type="text" name="framework" id="framework">
                     <br>
 
+                    <label for="user">User</label>
+                    <br>
+                    <select name="user" id="user">
+                        @foreach ($users as $user)
+                            <option value="{{ $user->id }}">{{ $user->name }}</option>
+                        @endforeach
+
+                    </select>
+
                     <div class="buttons my-3">
                         <input type="submit" value="CREATE">
                     </div>

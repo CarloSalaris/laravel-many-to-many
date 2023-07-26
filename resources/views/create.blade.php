@@ -13,43 +13,51 @@
                     @csrf
                     @method('POST')
 
-                    <label for="title">Title</label>
+                    <label class="form-label" for="title">Title</label>
                     <br>
-                    <input type="text" name="title" id="title">
-                    <br>
-
-                    <label for="description">Description</label>
-                    <br>
-                    <textarea name="description" id="description" rows="5"></textarea>
+                    <input class="form-control" type="text" name="title" id="title">
                     <br>
 
-                    <label for="type_id">Type</label>
+                    <label class="form-label" for="description">Description</label>
                     <br>
-                    <select name="type_id" id="type_id">
+                    <textarea class="form-control" name="description" id="description" rows="5"></textarea>
+                    <br>
+
+                    <label class="form-label" for="type_id">Type</label>
+                    <br>
+                    <select class="form-select" name="type_id" id="type_id">
                         @foreach ($types as $type)
                             <option value="{{ $type->id }}">{{ $type->name }}</option>
                         @endforeach
 
                     </select>
-                    {{-- <input type="text" name="type" id="type"> --}}
+                    {{-- <input class="form-control" type="text" name="type" id="type"> --}}
                     <br>
 
-                    <label for="framework">Framework</label>
+                    <label class="form-label" for="framework">Framework</label>
                     <br>
-                    <input type="text" name="framework" id="framework">
+                    <input class="form-control" type="text" name="framework" id="framework">
                     <br>
 
-                    {{-- <label for="user">User</label>
-                    <br>
-                    <select name="user" id="user">
-                        @foreach ($users as $user)
-                            <option value="{{ $user->id }}">{{ $user->name }}</option>
-                        @endforeach
+                    <div class="row justify-content-center">
+                        <div class="col col-md-6">
+                            <div class="form-check mx-5">
+                                @foreach ($technologies as $technology)
+                                    <div class="border-bottom">
+                                        <input class="form-check-input" type="checkbox" value="{{ $technology->id }}"
+                                            name="technologies[]" id="{{ $technology->id }}">
+                                        <label class="form-check-label" for="{{ $technology->id }}">
+                                            {{ $technology->name }}
+                                        </label>
+                                    </div>
+                                    <br>
+                                @endforeach
+                            </div>
+                        </div>
+                    </div>
 
-                    </select> --}}
-
-                    <div class="buttons my-3">
-                        <input type="submit" value="CREATE">
+                    <div class=" my-3">
+                        <button type="submit" class="btn btn-primary">Submit</button>
                     </div>
 
                 </form>

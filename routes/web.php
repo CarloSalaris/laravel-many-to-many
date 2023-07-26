@@ -45,4 +45,11 @@ Route::post('/store', [LoggedController :: class, 'store'])
     ->middleware('auth')
     ->name('store');
 
+Route::get('/edit/{id}', [LoggedController :: class, 'edit'])
+    ->middleware('auth')
+    ->name('edit');
+Route::put('update/{id}', [LoggedController :: class, 'update'])
+    ->middleware('auth')
+    ->name('update');
+
 require __DIR__.'/auth.php';

@@ -42,4 +42,25 @@ class LoggedController extends Controller
         return redirect() -> route("logged.show", $project -> id);
 
     }
+
+    public function edit($id) {
+
+        $project = Project :: findOrFail($id);
+        $technologies = Technology :: all();
+        $types = Type :: all();
+
+        return view('edit', compact('project', 'types', 'technologies'));
+    }
+
+    public function update(Request $request, $id) {
+
+        $project = Project :: findOrFail($id);
+        $data = $request->all();
+
+        $project->update($data);
+        $project -> technologies() -> sync($data['technologies']);
+
+        return redirect() -> route('logged.show', $project->id);
+
+    }
 }

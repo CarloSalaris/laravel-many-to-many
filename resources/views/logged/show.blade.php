@@ -3,7 +3,7 @@
 @section('content')
     <div class="container text-center mt-5">
 
-        <div class="card my-5">
+        <div class="card mt-5">
             <div class="card-header">
                 <h1> {{ $project->title }} </h1>
             </div>
@@ -36,6 +36,10 @@
             </div>
 
         </div>
+
+        <a role="button" class="btn btn-primary my-3" href="{{ route('edit', $project->id) }}">
+            Edit
+        </a>
 
     </div>
 @endsection

@@ -23,9 +23,9 @@
                     <textarea name="description" id="description" rows="5"></textarea>
                     <br>
 
-                    <label for="type">Type</label>
+                    <label for="type_id">Type</label>
                     <br>
-                    <select name="type" id="type">
+                    <select name="type_id" id="type_id">
                         @foreach ($types as $type)
                             <option value="{{ $type->id }}">{{ $type->name }}</option>
                         @endforeach
@@ -39,14 +39,14 @@
                     <input type="text" name="framework" id="framework">
                     <br>
 
-                    <label for="user">User</label>
+                    {{-- <label for="user">User</label>
                     <br>
                     <select name="user" id="user">
                         @foreach ($users as $user)
                             <option value="{{ $user->id }}">{{ $user->name }}</option>
                         @endforeach
 
-                    </select>
+                    </select> --}}
 
                     <div class="buttons my-3">
                         <input type="submit" value="CREATE">

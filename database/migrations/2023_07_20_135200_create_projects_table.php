@@ -17,8 +17,8 @@ return new class extends Migration
             $table -> id();
 
             $table -> string('title') -> unique();
-            $table -> string('framework') -> nullable();
             $table -> text('description') -> nullable();
+            $table -> string('framework') -> nullable();
 
             $table -> timestamps();
         });

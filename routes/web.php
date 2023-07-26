@@ -37,7 +37,12 @@ Route::get('/guest/index', [GuestController :: class, 'index'])
 Route::get('/logged/show/{id}', [LoggedController :: class, 'show'])
     -> middleware('auth')
     -> name('logged.show');
+
 Route::get('/create', [LoggedController :: class, 'create'])
     -> middleware('auth')
-    ->name('create');
+    ->name('logged.create');
+Route::post('/store', [LoggedController :: class, 'store'])
+    ->middleware('auth')
+    ->name('store');
+
 require __DIR__.'/auth.php';

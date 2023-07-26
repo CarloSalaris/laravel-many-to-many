@@ -2,13 +2,16 @@
 
 @section('content')
     <div class="container text-center">
-        <div class="card">
+        <div class="card mt-5">
             <div class="card-header">
-                <h1>Form to create a project</h1>
+                <h1>Create a project</h1>
             </div>
             <div class="card-body">
 
-                <form action="" method="get">
+                <form action=" {{ route('store') }} " method="post">
+
+                    @csrf
+                    @method('POST')
 
                     <label for="title">Title</label>
                     <br>
@@ -22,7 +25,13 @@
 
                     <label for="type">Type</label>
                     <br>
-                    <input type="text" name="type" id="type">
+                    <select name="type" id="type">
+                        @foreach ($types as $type)
+                            <option value="{{ $type->id }}">{{ $type->name }}</option>
+                        @endforeach
+
+                    </select>
+                    {{-- <input type="text" name="type" id="type"> --}}
                     <br>
 
                     <label for="framework">Framework</label>

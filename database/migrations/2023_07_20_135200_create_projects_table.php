@@ -19,6 +19,7 @@ return new class extends Migration
             $table -> string('title') -> unique();
             $table -> text('description') -> nullable();
             $table -> string('framework') -> nullable();
+            $table -> string('main_picture') -> nullable();
 
             $table -> timestamps();
         });

@@ -8,12 +8,16 @@
                     <h1>Create a project</h1>
                 </div>
                 <div class="card-body">
-                    <form action=" {{ route('store') }} " method="post">
+                    <form action=" {{ route('store') }} " method="POST" enctype="multipart/form-data">
                         @csrf
                         @method('POST')
                         <label class="form-label" for="title">Title</label>
                         <br>
                         <input class="form-control" type="text" name="title" id="title">
+                        <br>
+                        <label class="form-label" for="main_picture">Select picture</label>
+                        <br>
+                        <input class="form-control" type="file" name="main_picture" id="main_picture">
                         <br>
                         <label class="form-label" for="description">Description</label>
                         <br>

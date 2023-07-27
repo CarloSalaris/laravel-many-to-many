@@ -61,6 +61,19 @@ class LoggedController extends Controller
         $project = Project :: findOrFail($id);
         $data = $request->all();
 
+        if (!array_key_exists('main_picture', $data))
+            $data['main_picture'] = $project->main_picture;
+        else {
+            if ($project->main_picture) {
+
+                $oldImgPath = $project->main_picture;
+                Storage::delete($oldImgPath);
+            }
+        }
+
+        $data['main_picture'] = Storage::put('uploads', $data['main_picture']);
+
+
         $project->update($data);
 
         // IF ARRAY EMPTY

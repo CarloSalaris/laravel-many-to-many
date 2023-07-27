@@ -21,7 +21,7 @@
 
                         @if ($project->main_picture)
                             <img class="mb-3" style="max-width: 100%"
-                                src=" {{ asset('storage/' . $project->main_picture) }}" alt="main picture">
+                                src=" {{ asset('storage/' . $project->main_picture) }}" alt="">
                         @endif
                         <label class="form-label" for="main_picture">Select picture</label>
                         <br>

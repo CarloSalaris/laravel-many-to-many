@@ -9,7 +9,12 @@
             </div>
 
             <div class="card-body">
-                <h4>Description:</h4>
+
+                <img class="mb-3" style="max-width: 100%"
+                    src="
+                {{ asset('storage/' . $project->main_picture) }}" alt="main picture">
+
+                <h4><b>Description:</b></h4>
                 <p>{{ $project->description }}</p>
                 <h5>
                     <b>Type: </b> {{ $project->type->name }}

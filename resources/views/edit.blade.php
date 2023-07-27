@@ -8,7 +8,7 @@
                     <h1>Edit project</h1>
                 </div>
                 <div class="card-body">
-                    <form action=" {{ route('update', $project->id) }} " method="POST">
+                    <form action=" {{ route('update', $project->id) }} " method="POST" enctype="multipart/form-data">
 
                         @csrf
                         @method('PUT')
@@ -17,6 +17,15 @@
                         <br>
                         <input class="form-control" type="text" name="title" id="title"
                             value="{{ $project->title }}">
+                        <br>
+
+                        @if ($project->main_picture)
+                            <img class="mb-3" style="max-width: 100%"
+                                src=" {{ asset('storage/' . $project->main_picture) }}" alt="main picture">
+                        @endif
+                        <label class="form-label" for="main_picture">Select picture</label>
+                        <br>
+                        <input class="form-control" type="file" name="main_picture" id="main_picture">
                         <br>
                         <label class="form-label" for="description">Description</label>
                         <br>

@@ -16,9 +16,18 @@
                 </h5>
                 <h5>
                     <b>Technologies: </b>
-                    @foreach ($project->technologies as $technology)
-                        {{ $technology->name }}
-                    @endforeach
+                    @if (count($project->technologies) > 0)
+                        @foreach ($project->technologies as $technology)
+                            @if ($loop->last)
+                                {{ $technology->name }}
+                            @else
+                                {{ $technology->name }},
+                            @endif
+                        @endforeach
+                    @else
+                        NO TECHNOLOGY
+                    @endif
+
                 </h5>
             </div>
 

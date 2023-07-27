@@ -12,7 +12,7 @@
 
                 <img class="mb-3" style="max-width: 100%"
                     src="
-                {{ asset('storage/' . $project->main_picture) }}" alt="">
+                {{ asset($project->main_picture ? 'storage/' . $project->main_picture : 'storage/img/default.jpg') }}">
 
                 <h4><b>Description:</b></h4>
                 <p>{{ $project->description }}</p>

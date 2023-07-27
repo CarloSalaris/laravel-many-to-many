@@ -52,6 +52,8 @@ return new class extends Migration
             $table->dropForeign('projects_type_id_foreign');
             $table->dropColumn('type_id');
 
+            //$table->dropForeign(['user_id', 'type_id'])
+
         });
 
         Schema::table('project_technology', function (Blueprint $table) {

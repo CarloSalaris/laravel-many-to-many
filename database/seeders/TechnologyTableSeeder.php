@@ -21,7 +21,7 @@ class TechnologyTableSeeder extends Seeder
 
         foreach ($technologies as $technology) {
 
-            $projects = Project :: inRandomOrder() -> limit(rand(1, 5)) -> get();
+            $projects = Project :: inRandomOrder() -> limit(rand(3, 10)) -> get();
 
             $technology->projects()->attach($projects);
 

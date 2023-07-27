@@ -58,9 +58,19 @@ class LoggedController extends Controller
         $data = $request->all();
 
         $project->update($data);
-        $project -> technologies() -> sync($data['technologies']);
 
-        return redirect() -> route('logged.show', $project->id);
+        // IF ARRAY EMPTY
+        // OPTION 1
+        if (array_key_exists('technologies', $data))
+            $project->technologies()->sync($data['technologies']);
+        else
+            $project->technologies()->detach();
+
+        //OPTION 2 (con ternario)
+        /* $project -> technologies() -> sync((array_key_exists('technologies', $data)) ? $data['technologies'] : []); */
+
+
+        return redirect()->route('logged.show', $project->id);
 
     }
 }

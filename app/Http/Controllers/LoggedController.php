@@ -8,6 +8,7 @@ use App\Models\Technology;
 use App\Models\Project;
 use App\Models\Type;
 use  Illuminate\Support\Facades\Auth;
+use  Illuminate\Support\Facades\Storage;
 
 
 class LoggedController extends Controller
@@ -34,6 +35,9 @@ class LoggedController extends Controller
         $data = $request->all();
 
         $data['user_id'] = Auth::id();
+
+        $img_path = Storage::put('uploads', $data['main_picture']);
+        $data['main_picture'] = $img_path;
 
         $project = Project :: create($data);
         $project -> technologies() -> attach($data['technologies']);

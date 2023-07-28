@@ -20,7 +20,8 @@ class ProjectFactory extends Factory
 
             "title" => str_replace(' ', '_', fake() -> words(3, true)),
             "framework" => fake() ->  randomElement(['Laravel', 'VUE', 'none']),
-            "description" => fake() -> text()
+            "description" => fake() -> text(),
+            "main_picture" => fake() -> image('storage/app/public/img',400,300)
         ];
     }
 }

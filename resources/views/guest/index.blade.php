@@ -10,20 +10,16 @@
         </a>
 
         <div class="row justify-content-center">
-            <div class="col col-md-6 ">
-                <ul class="list-unstyled">
-                    @foreach ($projects as $project)
-                        <li>
-                            <a class="d-block text-decoration-none border rounded p-3 my-3"
-                                href=" {{ route('logged.show', $project->id) }} ">
-                                <h4>{{ $project->title }}</h4>
+            @foreach ($projects as $project)
+                <div class="col-12 col-md-6 col-xl-4">
+                    <a class="d-block text-decoration-none border rounded p-3 my-3"
+                        href=" {{ route('logged.show', $project->id) }} ">
+                        <h4>{{ $project->title }}</h4>
 
-                                <img class="img-fluid img-thumbnail" src="{{ asset($project->main_picture ? 'storage/' . $project->main_picture : 'storage/img/default.jpg') }}" alt="">
-                            </a>
-                        </li>
-                    @endforeach
-                </ul>
-            </div>
+                        <img class="img-fluid img-thumbnail" src="{{ asset($project->main_picture ? 'storage/' . $project->main_picture : 'storage/img/default.jpg') }}" alt="">
+                    </a>
+                </div>
+            @endforeach
         </div>
 
     </div>

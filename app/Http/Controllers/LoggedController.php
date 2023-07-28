@@ -73,7 +73,6 @@ class LoggedController extends Controller
 
         $data['main_picture'] = Storage::put('uploads', $data['main_picture']);
 
-
         $project->update($data);
 
         // IF ARRAY EMPTY
@@ -86,8 +85,22 @@ class LoggedController extends Controller
         //OPTION 2 (con ternario)
         /* $project -> technologies() -> sync((array_key_exists('technologies', $data)) ? $data['technologies'] : []); */
 
-
         return redirect()->route('logged.show', $project->id);
 
+    }
+
+    public function pictureDelete($id) {
+        $project = Project :: findOrFail($id);
+
+        if($project->main_picture) {
+
+            $oldImgPath = $project->main_picture;
+            Storage::delete($oldImgPath);
+        }
+
+        $project->main_picture = null;
+        $project->save();
+
+        return redirect() -> route('logged.show', $project->id);
     }
 }

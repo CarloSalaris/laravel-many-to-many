@@ -52,4 +52,8 @@ Route::put('update/{id}', [LoggedController :: class, 'update'])
     ->middleware('auth')
     ->name('update');
 
+Route::delete('/project/{id}/picture', [LoggedController :: class, 'pictureDelete'])
+    ->middleware('auth')
+    ->name('picture.delete');
+
 require __DIR__.'/auth.php';

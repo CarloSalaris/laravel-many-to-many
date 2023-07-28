@@ -16,7 +16,12 @@
                         href=" {{ route('logged.show', $project->id) }} ">
                         <h4>{{ $project->title }}</h4>
 
-                        <img class="img-fluid img-thumbnail" src="{{ asset($project->main_picture ? 'storage/' . $project->main_picture : 'storage/img/default.jpg') }}" alt="">
+                        <img class="img-fluid img-thumbnail" src="{{ asset($project->main_picture ? 'storage/' . $project->main_picture : 'storage/img/default.jpg') }}"
+                        style="
+                        width: 100%;
+                        object-fit: cover;
+                        aspect-ratio: 3/2;
+                        " alt="">
                     </a>
                 </div>
             @endforeach

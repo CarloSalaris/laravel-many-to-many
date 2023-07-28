@@ -69,9 +69,11 @@ class LoggedController extends Controller
                 $oldImgPath = $project->main_picture;
                 Storage::delete($oldImgPath);
             }
+
+            $data['main_picture'] = Storage::put('uploads', $data['main_picture']);
         }
 
-        $data['main_picture'] = Storage::put('uploads', $data['main_picture']);
+
 
         $project->update($data);
 

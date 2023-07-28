@@ -16,7 +16,9 @@
                         <li>
                             <a class="d-block text-decoration-none border rounded p-3 my-3"
                                 href=" {{ route('logged.show', $project->id) }} ">
-                                {{ $project->title }}
+                                <h4>{{ $project->title }}</h4>
+
+                                <img class="img-fluid img-thumbnail" src="{{ asset($project->main_picture ? 'storage/' . $project->main_picture : 'storage/img/default.jpg') }}" alt="">
                             </a>
                         </li>
                     @endforeach

@@ -10,7 +10,7 @@
 
             <div class="card-body">
 
-                <img class="mb-3" style="max-width: 100%"
+                <img class="mb-3 rounded" style="max-width: 100%"
                     src="
                 {{ asset($project->main_picture ? 'storage/' . $project->main_picture : 'storage/img/default.jpg') }}">
 

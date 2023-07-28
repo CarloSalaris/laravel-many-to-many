@@ -57,17 +57,17 @@
                 EDIT
             </a>
 
-            {{-- @if ($project->main_picture) --}}
-            <form class="col-12 col-sm-5 col-lg-4 p-0 my-3" action="{{ route('picture.delete', $project->id) }}"
-                method="post">
+            @if ($project->main_picture)
+                <form class="col-12 col-sm-5 col-lg-4 p-0 my-3" action="{{ route('picture.delete', $project->id) }}"
+                    method="post">
 
-                @csrf
-                @method('DELETE')
+                    @csrf
+                    @method('DELETE')
 
-                <input type="submit" class="col-12 btn btn-primary px-5" value="DELETE PICTURE">
+                    <input type="submit" class="col-12 btn btn-primary px-5" value="DELETE PICTURE">
 
-            </form>
-            {{-- @endif --}}
+                </form>
+            @endif
 
         </div>
 
